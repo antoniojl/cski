@@ -13,6 +13,8 @@ npm install
 npm run dev
 ```
 
+Then visit http://localhost:8081 in your browser.
+
 **How To Play**
 
 -   Use the arrow keys to turn the skier.
@@ -20,6 +22,35 @@ npm run dev
     to resume skiing.
 -   At some point the rhino will appear, chasing the skier. It will inevitably catch the skier and eat them, ending the
     game.
+
+
+**Comments**:
+
+I added the following features:
+
+- The skier now jumps when the user hits the space bar
+- The game spawns ramps which, when collided, cause the player to jump
+- The length of the player's jump is determined by their speed
+- During their jump, the player's sprite completes one rotation of the jumping animation
+- The player can jump over rocks, but not trees (or the rhino)
+- The player now accelerates gradually from a standing start
+- The rhino has been slowed and given a further start point to accommodate the player's slow start
+
+The changes are in this PR: https://github.com/antoniojl/cski/pull/1/files
+
+I found the following bugs:
+
+- BUG: Skier can start on an obstacle
+  + FIX: Remove any obstacles in front of the skier at the start
+- BUG: Initial obstacle distribution is denser than later-generated obstacles (to replicate, zoom browser UI out to 25% and start skiing)
+  + FIX: Revisit how initial obstacles vs later obstacles are generated
+- BUG: Canvas doesn't resize when the browser window is resized
+  + FIX: Update canvas size on resize
+- BUG: The game runs as fast as it can, which can be roo fast on a sufficiently fast machine with a small enough browser window
+  + FIX: Limit the maximium number of frame updates per second
+- BUG: Rhino starts chasing immediately; in the original game, the rhino only started chasing after the skier reached the finish line
+  + FIX: Introduce a finish line, only spawn the rhino after the user reaches it
+
 
 **Time Limit**
 
@@ -59,18 +90,6 @@ it better! Your solution can only gain from having a better foundation.
     -   Are there any known bugs?
     -   Did you do any bonus items?
     -   Tell us how to run it, either locally or through a cloud provider.
-
--   **Comments**:
-
-    I found the following bugs:
-    - Skier can start on an obstacle
-      + Remove any obstacles in front of the skier at the start
-    - Initial obstacle distribution is denser than later-generated obstacles (to replicate, zoom browser UI out to 25% and start skiing)
-      + Revisit how initial obstacles vs later obstacles are generated
-    - Canvas doesn't resize when the browser window is resized
-      + Update canvas size on resize
-    - Rhino starts chasing immediately; in the original game, the rhino only started chasing after the skier reached the finish line
-      + Introduce a finish line, only spawn the rhino after the user reaches it
 
 -   **Be original:**
 
