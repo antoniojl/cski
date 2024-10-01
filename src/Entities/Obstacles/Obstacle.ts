@@ -12,6 +12,7 @@ import { Entity } from "../Entity";
  * The different types of obstacles that can be placed in the game.
  */
 const OBSTACLE_TYPES: IMAGE_NAMES[] = [
+    IMAGE_NAMES.JUMP_RAMP,
     IMAGE_NAMES.TREE,
     IMAGE_NAMES.TREE_CLUSTER,
     IMAGE_NAMES.ROCK1,
