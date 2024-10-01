@@ -60,6 +60,18 @@ it better! Your solution can only gain from having a better foundation.
     -   Did you do any bonus items?
     -   Tell us how to run it, either locally or through a cloud provider.
 
+-   **Comments**:
+
+    I found the following bugs:
+    - Skier can start on an obstacle
+      + Remove any obstacles in front of the skier at the start
+    - Initial obstacle distribution is denser than later-generated obstacles (to replicate, zoom browser UI out to 25% and start skiing)
+      + Revisit how initial obstacles vs later obstacles are generated
+    - Canvas doesn't resize when the browser window is resized
+      + Update canvas size on resize
+    - Rhino starts chasing immediately; in the original game, the rhino only started chasing after the skier reached the finish line
+      + Introduce a finish line, only spawn the rhino after the user reaches it
+
 -   **Be original:**
 
     This should go without saying but don’t copy someone else’s game implementation! We have access to Google too!
